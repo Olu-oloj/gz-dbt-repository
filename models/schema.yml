@@ -8,3 +8,7 @@
        - name: raw_gz_sales
        - name: raw_gz_product
        - name: raw_gz_ship
+       - name: aaw_gz_adwords
+       - name: aw_gz_bing
+       - name: w_gz_criteo
+       - name: raw_gz_facebook 

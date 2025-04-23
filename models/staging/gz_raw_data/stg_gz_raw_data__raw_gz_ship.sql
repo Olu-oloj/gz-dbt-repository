@@ -1,21 +1,14 @@
-with 
+with
 
-source as (
+    source as (select * from {{ source("gz_raw_data", "raw_gz_ship") }}),
 
-    select * from {{ source('gz_raw_data', 'raw_gz_ship') }}
+    renamed as (
 
-),
+        select orders_id, shipping_fee, logcost, cast(ship_cost as integer) as ship_cost
 
-renamed as (
+        from source
 
-    select
-        orders_id,
-        shipping_fee,
-        logcost,
-       CAST(ship_cost AS INTEGER) AS ship_cost
+    )
 
-    from source
-
-)
-
-select * from renamed
+select *
+from renamed
